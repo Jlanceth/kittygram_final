@@ -11,21 +11,21 @@ services:
       - pg_data:/var/lib/postgresql/data
   backend:
     #build: ./backend/
-    image: Jlanceth/kittygram_backend
+    image: jlanceth/kittygram_backend
     env_file: .env
     volumes:
       - static:/backend_static
       - media:/app/media/cats/images
   frontend:
     #build: ./frontend/ 
-    image: Jlanceth/kittygram_frontend
+    image: jlanceth/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
   gateway:
     #build: ./nginx/
-    image: Jlanceth/kittygram_gateway
+    image: jlanceth/kittygram_gateway
     env_file: .env
     volumes:
       - static:/static
